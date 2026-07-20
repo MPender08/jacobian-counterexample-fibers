@@ -29,9 +29,23 @@ No floating-point arithmetic is used for any mathematical claim.
 
 ## Reproduction
 
+macOS/Linux:
+
 ```bash
 python -m venv .venv
 . .venv/bin/activate
+python -m pip install -r requirements.txt
+python src/investigate_sympy.py
+
+npm ci
+node src/verify_nerdamer.js
+```
+
+Windows:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python src/investigate_sympy.py
 
