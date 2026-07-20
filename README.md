@@ -16,10 +16,10 @@ No floating-point arithmetic is used for any mathematical claim.
 python -m venv .venv
 . .venv/bin/activate
 python -m pip install -r requirements.txt
-python investigate_sympy.py
+python src/investigate_sympy.py
 
-npm install
-node verify_nerdamer.js
+npm ci
+node src/verify_nerdamer.js
 ```
 
 The Python script performs the Gröbner-basis, elimination, discriminant,
