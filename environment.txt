@@ -8,10 +8,10 @@ npm: 11.9.0
 Nerdamer: 1.1.13
 
 Primary exact computations:
-  PYTHONPATH=vendor python investigate_sympy.py
+  python src/investigate_sympy.py
 
 Independent determinant and collision check:
-  npm install
-  node verify_nerdamer.js
+  npm ci
+  node src/verify_nerdamer.js
 
 No floating-point result is used as proof.
