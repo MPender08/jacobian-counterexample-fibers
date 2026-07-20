@@ -1,0 +1,132 @@
+
+==============================================================================
+Environment
+==============================================================================
+Python: 3.12.13 (main, Mar  3 2026, 14:59:34) [Clang 21.1.4 ]
+Platform: Linux-6.12.47-x86_64-with-glibc2.39
+SymPy: 1.14.0
+
+==============================================================================
+Phase 1: determinant and reported collision
+==============================================================================
+det(JF) = -2
+F(0, 0, -1/4) = (-1/4, 0, 0)
+F(1, -3/2, 13/2) = (-1/4, 0, 0)
+F(-1, 3/2, 13/2) = (-1/4, 0, 0)
+Reduced Groebner basis, lex z > y > x:
+  -(27*x**2 - 4*z - 1)/4
+  (3*x + 2*y)/2
+  x*(x - 1)*(x + 1)
+All three proposed generators reduce to zero modulo the basis.
+
+==============================================================================
+Phase 2: generic elimination
+==============================================================================
+Elimination generators in QQ[a,b,c,x]:
+  (27*a**2*c**2*x**3 - 18*a*b*c*x**3 + 16*a*x**3 + b**3*c*x**3 - b**2*x**3 - 3*b*c*x - 2*c + 4*x)/27
+Primitive eliminant P(x) =
+  27*a**2*c**2*x**3 - 18*a*b*c*x**3 + 16*a*x**3 + b**3*c*x**3 - b**2*x**3 - 3*b*c*x - 2*c + 4*x
+Leading coefficient Q = 27*a**2*c**2 - 18*a*b*c + 16*a + b**3*c - b**2
+Linear coefficient R = -3*b*c + 4
+Discriminant_x(P) = -4*(27*a*c**2 - 9*b*c + 8)**2*(27*a**2*c**2 - 18*a*b*c + 16*a + b**3*c - b**2)
+R^3 + 27 Q c^2 - L^2 = 0
+Direct identity P(F1,F2,F3;x) = 0 verified.
+
+==============================================================================
+Exact family containing the reported collision
+==============================================================================
+Target: (aa,0,0), aa != 0
+Point 1: (0,0,aa)
+Points 2/3: (rr,6*aa*rr,-26*aa), where 4*aa*rr^2+1=0
+Family validated exactly modulo 4*aa*rr^2+1.
+
+==============================================================================
+Exceptional-locus classification
+==============================================================================
+Q = 27*a**2*c**2 - 18*a*b*c + 16*a + b**3*c - b**2
+L = 27*a*c**2 - 9*b*c + 8
+R = -3*b*c + 4
+Generic open set Q*L != 0: three distinct x-roots; unique y,z lift per root.
+Q = 0, R != 0: eliminant becomes linear; one full solution.
+Q = R = 0: empty fiber. Equivalent curve:
+  b = 4/(3c), a = 4/(27c^2), c != 0
+L = 0, Q != 0: repeated x-root, but three reduced full points.
+Reduced basis at L=0 sample (-8/27,0,1):
+  (96*x + 108*y + 27*z - 104)/27
+  (32*x + 27*y**2 + 36*y - 48)/27
+  (4*x - 3)*(3*y - 4)/12
+  (2*x + 3)*(4*x - 3)/8
+  {x: -3/2, y: 4/3, z: 104/27}
+  {x: 3/4, y: 2*(-1 + sqrt(3))/3, z: -8*(-13 + 9*sqrt(3))/27}
+  {x: 3/4, y: -2*(1 + sqrt(3))/3, z: 8*(13 + 9*sqrt(3))/27}
+Basis on missing-image curve at (4/27,4/3,1): [1]
+Basis at Q=0,R!=0 target (0,0,2): [z, y, x - 1]
+
+==============================================================================
+Additional exact target samples
+==============================================================================
+Target (-1, 0, 0)
+  -108*x**2 + z + 1
+  6*x + y
+  x*(2*x - 1)*(2*x + 1)/4
+Target (-1/9, 0, 0)
+  -(12*x**2 - 9*z - 1)/9
+  (2*x + 3*y)/3
+  x*(2*x - 3)*(2*x + 3)/4
+Target (-4, 0, 0)
+  -1728*x**2 + z + 4
+  24*x + y
+  x*(4*x - 1)*(4*x + 1)/16
+Target (1, 0, 0)
+  -108*x**2 + z - 1
+  -6*x + y
+  x*(4*x**2 + 1)/4
+Target (2, 1, 1)
+  -(4680*x**2 + 96720*x - 424*z - 29491)/424
+  (5304*x**2 - 624*x + 106*y - 19)/106
+  (104*x**3 + x - 2)/104
+All three roots of 104*x^3+x-2 lift to the full target (2,1,1).
+
+==============================================================================
+Phase 3: exact z-channel determinant decomposition
+==============================================================================
+det(Ax,Ay,B) = -2
+det(Bx,Ay,B) = -6*x**2*(x*y + 1)
+det(Ax,By,B) = 6*x**2*(x*y + 1)
+det(Bx,By,B) = 0
+B2^3 + 27*B1^2*B3 = 0
+Division-free elimination of z uses (T-A) cross B = 0:
+ minor 12 = (x*y + 1)**2*(3*a*x - b*x*y - b + x*y**2 + y)
+ minor 13 = -a*x**3 - c*x**3*y**3 - 3*c*x**2*y**2 - 3*c*x*y - c + x**3*y**2 + 3*x**2*y + 2*x
+ minor 23 = -x*(b*x**2 + 3*c*x**2*y**2 + 6*c*x*y + 3*c - 4*x**2*y - 6*x)
+
+==============================================================================
+Phase 4: restricted coefficient families
+==============================================================================
+Independent z-channel scalings: determinant is constant iff
+  p - r
+  q - r
+Constant term = -2*p
+Six-coefficient ansatz Groebner constraints (before h*s != 0 case split):
+  h*(k*m + 2*scoef)
+  4*h*n*scoef + k*m**2 - m*scoef
+  2*h*pcoef + k*m - scoef
+  h*(4*k + scoef**2)
+  (m*pcoef - 2*n*scoef)*(m*pcoef + n*scoef)
+  (m*pcoef + n*scoef)*(m*scoef - 8)
+  k*m**2*pcoef + m*pcoef*scoef + 2*n*scoef**2
+  (k*m - scoef)*(m*scoef - 8)
+  (k*m - scoef)*(k*m + 2*scoef)
+  4*k*m*pcoef + m*pcoef*scoef**2 + n*scoef**3 - 4*pcoef*scoef
+  (4*k + scoef**2)*(k*m - scoef)
+  k*n + pcoef
+Constant determinant = -h**3*scoef
+On h*s != 0 component:
+ k=-s^2/4, m=8/s, n=6/(h*s), p=3*s/(2*h)
+ determinant = -h**3*scoef
+This entire two-parameter family is diagonally equivalent to the original:
+ F_{h,s} = diag(2h^3/s,h,s/2) o F o diag(1,1/h,s/2).
+
+==============================================================================
+All assertions passed
+==============================================================================

@@ -1,0 +1,17 @@
+Execution date: 2026-07-20
+Operating system: Linux 6.12.47 x86_64, glibc 2.39
+Python: 3.12.13
+SymPy: 1.14.0
+mpmath: 1.3.0
+Node.js: 24.14.0
+npm: 11.9.0
+Nerdamer: 1.1.13
+
+Primary exact computations:
+  PYTHONPATH=vendor python investigate_sympy.py
+
+Independent determinant and collision check:
+  npm install
+  node verify_nerdamer.js
+
+No floating-point result is used as proof.
