@@ -3,6 +3,8 @@
 This bundle reproduces the exact calculations in the accompanying technical report.
 No floating-point arithmetic is used for any mathematical claim.
 
+Another follow-up: [jacobian-counterexample-structure](https://github.com/MPender08/jacobian-counterexample-structure)
+
 ## Main findings
 
 - The displayed collision belongs to an exact one-parameter family of
